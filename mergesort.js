@@ -44,6 +44,7 @@ function merge(array1, array2) {
 // look at the console logs to see it in action!
 function mergeSort(array) {
   console.log('mergeSort splits: ', array); // logging to see recursion
+
   if (array.length < 2) {
     return array;
   }
@@ -51,6 +52,34 @@ function mergeSort(array) {
 
   return merge(mergeSort(halves[0]), mergeSort(halves[1]));
 }
+
+// line 53: return the merge of (merge(split), merge(split))
+// split and return the merge of that split, split and return the merge of that split, eventually it his the base case and just returns the arrays all length 1
+
+// Example array: [3, 2, 4, 1]
+//                                  2a                  2b
+// mergeSort1:    returns merge(mergeSort([3, 2]), mergeSort([4, 1]))
+
+// 2a:
+//                                  3a              3b
+// mergeSort2a:   returns merge(mergeSort([3]), mergeSort([2]))
+// mergeSort3a:  returns [3]
+// mergeSort3b:  returns [2]
+//                                  3a              3b
+// mergeSort2a:   returns merge(mergeSort([3]), mergeSort([2]))  --> returns merge([3], [2]) --> returns [2, 3]
+
+// 2b:
+//                                  3c               3d
+// mergeSort2b:   returns merge(mergeSort([4]), mergeSort([1]))
+// mergeSort3c:  returns [4]
+// mergeSort3d:  returns [1]
+
+//                                    3c            3d
+// mergeSort2b:   returns merge(mergeSort([4]), mergeSort([1]))  --> returns merge([4], [1]) --> returns [1, 4]
+
+// 1:
+//                                  2a                  2b
+// mergeSort1:    returns merge(mergeSort([3, 2]), mergeSort([4, 1]))  --> returns merge([2, 3], [1, 4]) --> returns [1, 2, 3, 4]
 
 // test:
 const arr = [6, 21, 7, -2, 1, 100];
