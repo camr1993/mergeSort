@@ -55,6 +55,8 @@ function mergeSort(array) {
 
 // line 53: return the merge of (merge(split), merge(split))
 // split and return the merge of that split, split and return the merge of that split, eventually it his the base case and just returns the arrays all length 1
+// mergeSort = split and merge, split and merge...
+// merging doesn't actually happen until the unwind on the recursion
 
 // Example array: [3, 2, 4, 1]
 //                                  2a                  2b
