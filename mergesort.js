@@ -1,3 +1,4 @@
+let test = 'hello';
 function split(wholeArray) {
   console.log('INITIALIZING SPLIT: ', wholeArray);
 
